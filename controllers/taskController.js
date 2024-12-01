@@ -4,6 +4,7 @@ exports.createTask = async (req, res) => {
     try {
         const { title, description, dueDate } = req.body;
         const task = new Task({ title, description, dueDate, userId: req.user.userId });
+        console.log("Task creation successful"); // Log task addition response
         await task.save();
         res.status(201).json(task);
     } catch (error) {
@@ -17,6 +18,7 @@ exports.getTasks = async (req, res) => {
         res.status(200).json(tasks);
     } catch (error) {
         res.status(500).json({ error: "Failed to fetch tasks" });
+        console.error('Error fetching tasks:', error); // Log error when tasks fetch fails
     }
 };
 
