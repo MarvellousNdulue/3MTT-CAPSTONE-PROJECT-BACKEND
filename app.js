@@ -24,7 +24,19 @@ if (!DB_URI || !JWT_SECRET) {
 const app = express();
 
 // Middleware setup
-app.use(cors());
+
+// Updated CORS configuration
+const corsOptions = {
+    origin: "https://3-mtt-capstone-project-frontend.vercel.app", // Replace with your frontend URL
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allowed HTTP methods
+    allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
+    credentials: true, // Allow credentials (e.g., cookies)
+};
+app.use(cors(corsOptions));
+
+// Handle preflight requests
+app.options("*", cors(corsOptions));
+
 app.use(bodyParser.json());
 
 // Static file serving
