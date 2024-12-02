@@ -1,5 +1,5 @@
 export const NetworkService = {
-    async fetchWithTimeout(url, options = {}, timeout = 7000) {
+    async fetchWithTimeout(url, options = {}, timeout = 5000) {
         const controller = new AbortController();
         const id = setTimeout(() => controller.abort(), timeout);
 

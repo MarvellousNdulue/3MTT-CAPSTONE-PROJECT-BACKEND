@@ -27,9 +27,9 @@ const app = express();
 
 // Updated CORS configuration
 const corsOptions = {
-    origin: "https://3-mtt-capstone-project-frontend.vercel.app", // Replace with your frontend URL
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allowed HTTP methods
-    allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
+    origin: '*', // Allowed all origin
+    methods: '*', // Allowed all HTTP methods
+    allowedHeaders: '*', // Allowed all headers
     credentials: true, // Allow credentials (e.g., cookies)
 };
 app.use(cors(corsOptions));
